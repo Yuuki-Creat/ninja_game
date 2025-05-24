@@ -17,9 +17,9 @@ public class GameServer {
         staticFiles.location("/public");
 
         // MySQL接続情報
-        String url = "jdbc:mysql://localhost:3306/ninja_game?serverTimezone=UTC";
-        String user = "root";
-        String password = "MySQLDevServer001@";
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
 
         // スコアの登録(request, response)
         post("api/score", (req, res) -> {
@@ -67,7 +67,7 @@ public class GameServer {
         });
 
         // ランキングの取得(request, response)
-        get("/api/ranking", (_, res) -> {
+        get("/api/ranking", (req, res) -> {
             res.type("application/json"); // レスポンスをJSONに設定
             List<Map<String, Object>> result = new ArrayList<>();
 
