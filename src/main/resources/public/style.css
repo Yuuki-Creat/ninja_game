@@ -1,0 +1,66 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*ゲーム全体の枠*/
+#game {
+    width: 900px;
+    max-width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    background-image: url('images/forest.jpg');
+    background-size: cover;
+    background-repeat: repeat-x;
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-Background {
+    animation: scrollBackground 10s linear infinite;
+}
+/* 背景をスクロールさせるアニメーション */
+@keyframes scrollBackground {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+
+.running {
+    animation: runCycle 0.3s infinite alternate;
+}
+/* 走ってるような振動アニメーション */
+@keyframes runCycle {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(5px); }
+}
+
+/*プレイヤーキャラ*/
+#player {
+    width: 40px;
+    height: 30px;
+    background-image: url('images/ninja1.png');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+}
+
+/*障害物*/
+#obstacle {
+    width: 30px;
+    height: 40px;
+    background-image: url('images/log.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

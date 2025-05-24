@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ninja Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <h1>ジャンプゲーム(ninja Game)</h1>
+        <div>
+            <p>ジャンプして障害物を避けろ！</p> 
+            <p>プレイヤー名を入力してEnterキー押下で開始</p>
+            <p>スペースキーを押してジャンプ！</p>
+        </div>
+        <input type="text" id="playerName" placeholder="プレイヤー名を入力">
+        <div id="game">
+            <div id="player"></div>
+            <div id="obstacle"></div>
+        </div>
+        <p>スコア: <span id="score">0</span></p>
+        <!-- <button onclick="sendScore()">スコア送信</button> -->
+        <h2>ランキング</h2>
+        <div id="ranking"></div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
