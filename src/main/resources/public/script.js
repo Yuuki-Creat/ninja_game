@@ -190,8 +190,10 @@ function updateJumpButtonVisibility() {
     const isLandscape = window.matchMedia("(orientation: landscape)").matches;
     const widthOK = window.innerWidth <= 1200;
 
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
     const jumpButton = document.getElementById("jumpbutton")
-    if (isLandscape && widthOK) {
+    if (isLandscape && widthOK && isMobile) {
         jumpButton.style.display = "block"
     } else {
         jumpButton.style.display = "none"
