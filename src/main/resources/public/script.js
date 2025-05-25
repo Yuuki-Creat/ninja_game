@@ -165,6 +165,7 @@ playerNameInput.addEventListener('keydown', function (e) {
 
         const player = document.getElementById("player");
         player.classList.add("running");
+
         const name = e.target.value.trim();
         if (!name) {
             alert('名前を入力してください')
@@ -173,7 +174,39 @@ playerNameInput.addEventListener('keydown', function (e) {
         // ゲーム開始
         startObstacle();
         // startRunningAnimation();　// 画像走る処理開始
-
+        // 入力欄を無効化
         playerNameInput.disabled = true;
+
+        // 画面をゲームエリアにスクロール（スマホ対策
+        setInterval(() => {
+            document.getElementById("game").scrollIntoView({behavior: "smooth", block: "center"});
+        }, 100);
     }
 });
+
+function updateJumpButtonVisibility() {
+    const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+    const widthOK = window.innerWidth <= 800;
+
+    const jumpButton = document.getElementById("jumpbutton")
+    if (isLandscape && widthOK) {
+        jumpButton.style.display = "block"
+    } else {
+        jumpButton.style.display = "none"
+    }
+}
+
+window.addEventListener("resize", updateJumpButtonVisibility);
+window.addEventListener("orientationchange", updateJumpButtonVisibility);
+window.addEventListener("load", updateJumpButtonVisibility);
+
+// 縦向き判定
+function checkOrientation() {
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const rotateWarning = document.getElementById("rotate-warning");
+    rotateWarning.style.display = isPortrait ? "block" : "none";
+}
+
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("load", checkOrientation);
