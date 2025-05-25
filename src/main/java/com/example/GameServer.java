@@ -13,8 +13,15 @@ import java.lang.reflect.Type;
 public class GameServer {
     public static void main(String[] args) {
 
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "4567"));
+        port(port); // Spark JavaのポートをRender環境のPORTに設定
+
         // publicディレクトリの静的ファイル提供可処理
         staticFiles.location("/public");
+
+        get("/", (req, res) -> {
+            return "Welcome to Ninja Game Server!";
+        });
 
         // MySQL接続情報
         String url = System.getenv("DB_URL");
