@@ -69,7 +69,7 @@ body {
 #jumpbutton {
     display: none;
     position: absolute;
-    bottom: 250px;
+    bottom: 100px;
     right: 20px;
     padding: 15px 25px;
     font-size: 18px;
