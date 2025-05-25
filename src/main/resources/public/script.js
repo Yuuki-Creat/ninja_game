@@ -177,10 +177,12 @@ playerNameInput.addEventListener('keydown', function (e) {
         // 入力欄を無効化
         playerNameInput.disabled = true;
 
+        // フォーカス外してソフトキーボードを閉じる
+        playerNameInput.blur();
         // 画面をゲームエリアにスクロール（スマホ対策
-        setInterval(() => {
-            document.getElementById("game").scrollIntoView({behavior: "smooth", block: "center"});
-        }, 100);
+        setTimeout(() => {
+            gameArea.scrollIntoView({behavior: "smooth", block: "center"});
+        }, 300);
     }
 });
 
