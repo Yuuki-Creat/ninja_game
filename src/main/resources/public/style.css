@@ -79,7 +79,7 @@ body {
     border-radius: 10px;
     z-index: 1000;
     touch-action: manipulation;
-    -webkit-transform: translateZ(0);
+    /* -webkit-transform: translateZ(0); */
 }
 
 @media screen and (max-width: 800px) and (orientation: landscape) {
