@@ -19,9 +19,9 @@ public class GameServer {
         // publicディレクトリの静的ファイル提供可処理
         staticFiles.location("/public");
 
-        get("/", (req, res) -> {
-            return "Welcome to Ninja Game Server!";
-        });
+        // get("/", (req, res) -> {
+        // return "Welcome to Ninja Game Server!";
+        // });
 
         // MySQL接続情報
         String url = System.getenv("DB_URL");
