@@ -208,7 +208,18 @@ window.addEventListener("load", updateJumpButtonVisibility);
 function checkOrientation() {
     const isPortrait = window.matchMedia("(orientation: portrait)").matches;
     const rotateWarning = document.getElementById("rotate-warning");
-    rotateWarning.style.display = isPortrait ? "block" : "none";
+    // rotateWarning.style.display = isPortrait ? "block" : "none";
+    const hideTargets = document.querySelectorAll(
+        "#game, #player, #obstacle, #jumpbutton, #playerName, #score, #ranking, h1, h2, p"
+    );
+
+    if (isPortrait) {
+        rotateWarning.style.display = "flex";
+        hideTargets.forEach(el => el.style.display = "none");
+    } else {
+        rotateWarning.style.display = "none";
+        hideTargets.forEach(el => el.style.display = "");
+    }
 }
 
 window.addEventListener("resize", checkOrientation);
