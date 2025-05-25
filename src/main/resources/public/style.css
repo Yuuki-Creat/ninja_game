@@ -80,8 +80,26 @@ body {
     z-index: 1000;
 }
 
-@media screen and (max-width: 600px) {
-    #jumpbutton {
+#rotate-warning {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.85);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 40vh;
+    z-index: 9999;
+}
+
+@media screen and (orientation: portrait) {
+    #rotate-warning {
         display: block;
+    }
+
+    #game, #player, #jumpbutton, h1, h2, p {
+        display: none !important;
     }
 }
