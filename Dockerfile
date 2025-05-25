@@ -12,3 +12,5 @@ RUN mvn clean package
 
 # アプリ起動（JARファイル名はビルド後の成果物に合わせて変更）
 CMD ["java", "-cp", "target/ninja-game-1.0-SNAPSHOT.jar", "com.example.GameServer"]
+
+EXPOSE 8080
