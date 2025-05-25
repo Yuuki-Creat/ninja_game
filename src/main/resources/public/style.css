@@ -89,7 +89,6 @@ body {
 }
 
 #rotate-warning {
-    display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
@@ -97,10 +96,10 @@ body {
     background-color: rgba(0,0,0,0.85);
     color: white;
     font-size: 24px;
-    text-align: center;
+    /* text-align: center; */
     z-index: 9999;
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -110,7 +109,7 @@ body {
 
 @media screen and (orientation: portrait) {
     #rotate-warning {
-        display: block;
+        display: flex; /* flexとして表示 */
     }
     /* 横向きでない場合、すべて非表示 */
     #game, #player, #obstacle, #jumpbutton, #playerName, #score, #ranking, h1, h2, p {

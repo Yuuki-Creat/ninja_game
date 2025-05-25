@@ -6,7 +6,7 @@ const playerNameInput = document.getElementById('playerName')
 let isJumping = false;  //ジャンプ中かどうかの判定
 let gravity = 1.0       //重力係数
 let playerBottom = 0;   //プレイヤーのY座標
-let jumpHeight = 130    //ジャンプの高さ
+let jumpHeight = 100    //ジャンプの高さ
 let score = 0;
 let currentFrame = 1;
 let runAnimationInterval;
