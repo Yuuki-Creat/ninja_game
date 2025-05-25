@@ -81,7 +81,7 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    #jumpButton {
+    #jumpbutton {
         display: block;
     }
 }
@@ -104,8 +104,8 @@ body {
     #rotate-warning {
         display: block;
     }
-
-    #game, #player, #jumpbutton, h1, h2, p {
+    /* 横向きでない場合、すべて非表示 */
+    #game, #player, #obstacle, #jumpbutton, #playerName, #score, #ranking, h1, h2, p {
         display: none !important;
     }
 }
