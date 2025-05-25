@@ -24,14 +24,10 @@ public class GameServer {
             return null;
         });
 
-        // get("/", (req, res) -> {
-        // return "Welcome to Ninja Game Server!";
-        // });
-
         // MySQL接続情報
-        String url = System.getenv("DB_URL");
-        String user = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASSWORD");
+        String url = System.getenv("?DB_URL?");
+        String user = System.getenv("?DB_USER_");
+        String password = System.getenv("?DB_PASSWORD?");
 
         // スコアの登録(request, response)
         post("api/score", (req, res) -> {
@@ -43,6 +39,13 @@ public class GameServer {
 
             String name = (String) data.get("name"); // プレイヤー名取得
             Object scoreObj = data.get("score"); // スコア取得
+
+            // 名前のバリデーション処理
+            if (name == null || name.trim().isEmpty() || name.length() > 50
+                    || !name.matches("^[a-zA-Z0-9ぁ-んァ-ン一-龥ー_\\- ]+$")) {
+                res.status(400);
+                return "Invalid name";
+            }
 
             // データ型のチェック
             Double scoreDouble = null;

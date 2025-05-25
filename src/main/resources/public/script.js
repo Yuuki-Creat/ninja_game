@@ -75,7 +75,8 @@ function fetchRanking() {
         // 取得したランキングデータをループ処理
         data.forEach((entry, index) => {
             const item = document.createElement('div'); // 新しいdiv要素を作成
-            item.textContent = `${index + 1}位: ${entry.name} - ${entry.score}点`; // ランキング情報をセット
+            item.rankText = `${index + 1}位: ${entry.name} - ${entry.score}点`; // ランキング情報をセット
+            item.appendChild(rankText);
             rankingDiv.appendChild(item); // 画面に追加
         });
     });
@@ -148,6 +149,11 @@ document.addEventListener('keydown', (e) => { //キーボードの入力監視
             jump();
         }
     } 
+});
+
+// タップ（クリック）でもジャンプできるように
+document.getElementById('jumpbutton').addEventListener("click", function () {
+    jump();
 });
 
 // ゲーム開始処理
