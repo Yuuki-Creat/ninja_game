@@ -80,6 +80,12 @@ body {
     z-index: 1000;
 }
 
+@media screen and (max-width: 600px) {
+    #jumpButton {
+        display: block;
+    }
+}
+
 #rotate-warning {
     display: none;
     position: fixed;
