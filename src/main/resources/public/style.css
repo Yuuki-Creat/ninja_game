@@ -8,7 +8,7 @@ body {
 /*ゲーム全体の枠*/
 #game {
     width: 900px;
-    max-width: 900px;
+    max-width: 100px;
     height: 300px;
     margin: 0 auto;
     background-image: url('images/forest.jpg');
@@ -80,7 +80,7 @@ body {
     z-index: 1000;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) and (orientation: landscape) {
     #jumpbutton {
         display: block;
     }
