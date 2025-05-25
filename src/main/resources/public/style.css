@@ -68,8 +68,8 @@ body {
 /* スマホ用ジャンプボタン */
 #jumpbutton {
     display: none;
-    position: absolute;
-    bottom: -50px;
+    position: fixed;
+    bottom: 20px;
     right: 20px;
     padding: 15px 25px;
     font-size: 18px;
