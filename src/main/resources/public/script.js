@@ -209,8 +209,10 @@ function checkOrientation() {
     const isPortrait = window.matchMedia("(orientation: portrait)").matches;
     const rotateWarning = document.getElementById("rotate-warning");
     // rotateWarning.style.display = isPortrait ? "block" : "none";
+
+    // rotate-warning内部以外を非表示にする
     const hideTargets = document.querySelectorAll(
-        "#game, #player, #obstacle, #jumpbutton, #playerName, #score, #ranking, h1, h2, p"
+        "body > h1, body > div:not(#rotate-warning), #playerName, #score, #ranking, h2"
     );
 
     if (isPortrait) {

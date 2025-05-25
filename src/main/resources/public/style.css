@@ -99,7 +99,7 @@ body {
     font-size: 24px;
     /* text-align: center; */
     z-index: 9999;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
