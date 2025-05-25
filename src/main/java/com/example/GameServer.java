@@ -19,6 +19,11 @@ public class GameServer {
         // publicディレクトリの静的ファイル提供可処理
         staticFiles.location("/public");
 
+        get("/", (req, res) -> {
+            res.redirect("/index.html");
+            return null;
+        });
+
         // get("/", (req, res) -> {
         // return "Welcome to Ninja Game Server!";
         // });
