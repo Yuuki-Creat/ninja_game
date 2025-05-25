@@ -188,7 +188,7 @@ playerNameInput.addEventListener('keydown', function (e) {
 
 function updateJumpButtonVisibility() {
     const isLandscape = window.matchMedia("(orientation: landscape)").matches;
-    const widthOK = window.innerWidth <= 800;
+    const widthOK = window.innerWidth <= 1200;
 
     const jumpButton = document.getElementById("jumpbutton")
     if (isLandscape && widthOK) {
