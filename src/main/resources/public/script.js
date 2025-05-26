@@ -75,7 +75,7 @@ function fetchRanking() {
         // 取得したランキングデータをループ処理
         data.forEach((entry, index) => {
             const item = document.createElement('div'); // 新しいdiv要素を作成
-            item.rankText = `${index + 1}位: ${entry.name} - ${entry.score}点`; // ランキング情報をセット
+            item.textContent = `${index + 1}位: ${entry.name} - ${entry.score}点`; // ランキング情報をセット
             item.appendChild(rankText);
             rankingDiv.appendChild(item); // 画面に追加
         });
@@ -205,26 +205,26 @@ window.addEventListener("orientationchange", updateJumpButtonVisibility);
 window.addEventListener("load", updateJumpButtonVisibility);
 
 // 縦向き判定
-// function checkOrientation() {
-//     const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-//     const rotateWarning = document.getElementById("rotate-warning");
-//     // rotateWarning.style.display = isPortrait ? "block" : "none";
+function checkOrientation() {
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const rotateWarning = document.getElementById("rotate-warning");
+    // rotateWarning.style.display = isPortrait ? "block" : "none";
 
-//     // rotate-warning内部以外を非表示にする
-//     const hideTargets = document.querySelectorAll(
-//         "body > h1, body > div:not(#rotate-warning), #playerName, #score, #ranking, h2"
-//     );
+    // rotate-warning内部以外を非表示にする
+    const hideTargets = document.querySelectorAll(
+        "body > h1, body > div:not(#rotate-warning), #playerName, #score, #ranking, h2"
+    );
 
-//     if (isPortrait) {
-//         rotateWarning.style.display = "flex";
-//         hideTargets.forEach(el => el.style.display = "none");
-//     } else {
-//         rotateWarning.style.display = "none";
-//         hideTargets.forEach(el => el.style.display = "");
-//     }
-// }
+    if (isPortrait) {
+        rotateWarning.style.display = "flex";
+        hideTargets.forEach(el => el.style.display = "none");
+    } else {
+        rotateWarning.style.display = "none";
+        hideTargets.forEach(el => el.style.display = "");
+    }
+}
 
-// window.addEventListener("DOMContentLoaded", checkOrientation);
-// window.addEventListener("resize", checkOrientation);
-// window.addEventListener("orientationchange", checkOrientation);
-// window.addEventListener("load", checkOrientation);
+window.addEventListener("DOMContentLoaded", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("load", checkOrientation);
