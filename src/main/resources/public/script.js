@@ -206,6 +206,7 @@ window.addEventListener("load", updateJumpButtonVisibility);
 
 // 縦向き判定
 function checkOrientation() {
+    console.log("Is portrait!");
     const isPortrait = window.matchMedia("(orientation: portrait)").matches;
     const rotateWarning = document.getElementById("rotate-warning");
     // rotateWarning.style.display = isPortrait ? "block" : "none";

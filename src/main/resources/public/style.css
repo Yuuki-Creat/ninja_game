@@ -109,7 +109,7 @@ body {
 
 @media screen and (orientation: portrait) {
     #rotate-warning {
-        display: flex; /* flexとして表示 */
+        display: flex !important; /* flexとして表示 */
     }
     /* 横向きでない場合、すべて非表示 */
     #game, #player, #obstacle, #jumpbutton, #playerName, #score, #ranking, h1, h2, p {
