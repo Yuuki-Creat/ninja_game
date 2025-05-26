@@ -89,6 +89,7 @@ body {
 }
 
 #rotate-warning {
+    display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
@@ -103,7 +104,7 @@ body {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    display: none;
+    flex-direction: column;
 }
 
 @media screen and (orientation: portrait) {

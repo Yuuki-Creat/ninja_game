@@ -205,25 +205,26 @@ window.addEventListener("orientationchange", updateJumpButtonVisibility);
 window.addEventListener("load", updateJumpButtonVisibility);
 
 // 縦向き判定
-function checkOrientation() {
-    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-    const rotateWarning = document.getElementById("rotate-warning");
-    // rotateWarning.style.display = isPortrait ? "block" : "none";
+// function checkOrientation() {
+//     const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+//     const rotateWarning = document.getElementById("rotate-warning");
+//     // rotateWarning.style.display = isPortrait ? "block" : "none";
 
-    // rotate-warning内部以外を非表示にする
-    const hideTargets = document.querySelectorAll(
-        "body > h1, body > div:not(#rotate-warning), #playerName, #score, #ranking, h2"
-    );
+//     // rotate-warning内部以外を非表示にする
+//     const hideTargets = document.querySelectorAll(
+//         "body > h1, body > div:not(#rotate-warning), #playerName, #score, #ranking, h2"
+//     );
 
-    if (isPortrait) {
-        rotateWarning.style.display = "flex";
-        hideTargets.forEach(el => el.style.display = "none");
-    } else {
-        rotateWarning.style.display = "none";
-        hideTargets.forEach(el => el.style.display = "");
-    }
-}
+//     if (isPortrait) {
+//         rotateWarning.style.display = "flex";
+//         hideTargets.forEach(el => el.style.display = "none");
+//     } else {
+//         rotateWarning.style.display = "none";
+//         hideTargets.forEach(el => el.style.display = "");
+//     }
+// }
 
-window.addEventListener("resize", checkOrientation);
-window.addEventListener("orientationchange", checkOrientation);
-window.addEventListener("load", checkOrientation);
+// window.addEventListener("DOMContentLoaded", checkOrientation);
+// window.addEventListener("resize", checkOrientation);
+// window.addEventListener("orientationchange", checkOrientation);
+// window.addEventListener("load", checkOrientation);
