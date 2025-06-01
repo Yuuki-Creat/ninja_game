@@ -73,7 +73,7 @@ body {
     right: 20px;
     padding: 15px 25px;
     font-size: 18px;
-    background-color: rgba(40, 167, 69, 0.6);
+    background-color: rgba(40, 167, 69, 0.6); /* 緑色 + 60%の不透明度 */
     color: white;
     border: none;
     border-radius: 10px;
