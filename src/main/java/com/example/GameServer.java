@@ -25,9 +25,15 @@ public class GameServer {
         });
 
         // MySQL接続情報
-        String url = System.getenv("?DB_URL?");
-        String user = System.getenv("?DB_USER_");
-        String password = System.getenv("?DB_PASSWORD?");
+        String host = System.getenv("DB_HOST");
+        String dbname = System.getenv("DB_NAME");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
+
+        String url = "jdbc:postgresql://" + host + ":5432/" + dbname;
+
+        // String url =
+        // "postgresql://demo_user:UUsIKJN422mRTId9QqjLkfEpr6P78pGR@dpg-d0ttpbu3jp1c73f1o950-a/ninja_game";
 
         // スコアの登録(request, response)
         post("api/score", (req, res) -> {
@@ -61,7 +67,7 @@ public class GameServer {
 
             // ターミナルでのログチェック用
             System.out.println("Received name: " + name);
-            System.out.println("Received score (raw): " + data.get("score"));
+            // System.out.println("Received score (raw): " + data.get("score"));
             System.out.println("Parsed score: " + score);
 
             // データベース接続
@@ -95,6 +101,7 @@ public class GameServer {
                     Map<String, Object> entry = new HashMap<>();
                     entry.put("name", rs.getString("name")); // 名前取得
                     entry.put("score", rs.getInt("score")); // スコア取得
+                    entry.put("created_at", rs.getTimestamp("created_at"));
                     result.add(entry);
                 }
             } catch (Exception e) {
