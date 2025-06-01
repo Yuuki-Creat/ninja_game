@@ -66,7 +66,8 @@ function startObstacle() {
 }
 
 function fetchRanking() {
-    fetch('http://localhost:4567/api/ranking') // サーバーからランキングデータ取得(エンドポイントにGETリクエストを送信)
+    // fetch('http://localhost:4567/api/ranking') // サーバーからランキングデータ取得(エンドポイントにGETリクエストを送信)
+    fetch('https://ninja-game-qzab.onrender.com/api/ranking') // サーバーからランキングデータ取得(エンドポイントにGETリクエストを送信)
     .then(response => response.json()) // 取得したデータをJSONに変換(オブジェクトに変換)
     .then(data => {
         const rankingDiv = document.getElementById('ranking'); // ランキング表示用の要素取得
@@ -91,7 +92,8 @@ function sendScore() {
     }
 
     // サーバーへPOSTリクエストを送信
-    return fetch('http://localhost:4567/api/score', {
+    // return fetch('http://localhost:4567/api/score', {
+    return fetch('https://ninja-game-qzab.onrender.com/api/score', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
