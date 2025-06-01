@@ -25,10 +25,10 @@ public class GameServer {
         });
 
         // MySQL接続情報
-        String host = System.getenv("DB_HOST");
-        String dbname = System.getenv("DB_NAME");
-        String user = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASSWORD");
+        String host = System.getenv("Hostname");
+        String dbname = System.getenv("Database");
+        String user = System.getenv("Username");
+        String password = System.getenv("Password");
 
         String url = "jdbc:postgresql://" + host + ":5432/" + dbname;
 
