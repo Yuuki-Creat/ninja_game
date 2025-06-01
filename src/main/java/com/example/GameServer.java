@@ -28,11 +28,16 @@ public class GameServer {
         });
 
         // postgre接続情報
-        String host = System.getenv("DB_HOST");
-        String dbport = System.getenv("DB_PORT");
-        String dbName = System.getenv("DB_NAME");
-        String user = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASSWORD");
+        // String host = System.getenv("DB_HOST");
+        // String dbport = System.getenv("DB_PORT");
+        // String dbName = System.getenv("DB_NAME");
+        // String user = System.getenv("DB_USER");
+        // String password = System.getenv("DB_PASSWORD");
+        String host = "dpg-d0ttpbu3jp1c73f1o950-a";
+        String dbport = "5432";
+        String dbName = "ninja_game";
+        String user = "demo_user";
+        String password = "UUsIKJN422mRTId9QqjLkfEpr6P78pGR";
 
         String jdbcUrl = "jdbc:postgresql://" + host + ":" + dbport + "/" + dbName + "?sslmode=require";
 
