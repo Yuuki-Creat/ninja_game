@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.example.config.Appconfig;
 import com.google.gson.Gson; // JSON処理用のライブラリ
 import com.google.gson.reflect.TypeToken; // 型の変換に使用
+
 import java.lang.reflect.Type;
 
 public class GameServer {
     public static void main(String[] args) {
+        Appconfig.loadEnv(); // .envを読み込む
 
         int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "4567"));
         port(port); // Spark JavaのポートをRender環境のPORTに設定
@@ -24,13 +27,14 @@ public class GameServer {
             return null;
         });
 
-        // MySQL接続情報
-        String host = System.getenv("Hostname");
-        String dbname = System.getenv("Database");
-        String user = System.getenv("Username");
-        String password = System.getenv("Password");
+        // postgre接続情報
+        String host = System.getenv("DB_HOST");
+        String dbport = System.getenv("DB_PORT");
+        String dbName = System.getenv("DB_NAME");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
 
-        String url = "jdbc:postgresql://" + host + ":5432/" + dbname;
+        String jdbcUrl = "jdbc:postgresql://" + host + ":" + dbport + "/" + dbName + "?sslmode=require";
 
         // String url =
         // "postgresql://demo_user:UUsIKJN422mRTId9QqjLkfEpr6P78pGR@dpg-d0ttpbu3jp1c73f1o950-a/ninja_game";
@@ -71,7 +75,7 @@ public class GameServer {
             System.out.println("Parsed score: " + score);
 
             // データベース接続
-            try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            try (Connection conn = DriverManager.getConnection(jdbcUrl, user, password)) {
                 // データベースにスコア登録
                 String sql = "INSERT INTO scores (name, score, created_at) VALUES (?, ? ,now())";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -93,7 +97,7 @@ public class GameServer {
             List<Map<String, Object>> result = new ArrayList<>();
 
             // データベースに接続
-            try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            try (Connection conn = DriverManager.getConnection(jdbcUrl, user, password)) {
                 // sqlクエリ作成
                 String sql = "SELECT name, score, created_at FROM scores ORDER BY score DESC LIMIT 10"; // スコアを降順 10名まで
                 ResultSet rs = conn.createStatement().executeQuery(sql);
